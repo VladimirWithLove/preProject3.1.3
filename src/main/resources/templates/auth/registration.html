@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/auth/registration}" th:object="${user}">
+    <table border="0" cellpadding="5">
+        <tr>
+            <td><label for="username">Введите логин пользователя: </label></td>
+            <td><input type="text" th:field="*{login}" id="username"></td>
+            <td>
+                <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login error</div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Введите пароль: </label></td>
+            <td><input type="password" th:field="*{password}" id="password"></td>
+            <td>
+                <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="name">Введите имя пользователя: </label></td>
+            <td><input type="text" th:field="*{name}" id="name"></td>
+            <td>
+                <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Username error</div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="surname">Введите фамилию пользователя: </label></td>
+            <td><input type="text" th:field="*{surname}" id="surname"></td>
+            <td>
+                <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="profession">Введите профессию пользователя: </label></td>
+            <td><input type="text" th:field="*{profession}" id="profession"></td>
+            <td>
+                <div style="color:red" th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}">Profession
+                    error
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="age">Введите ваш возраст: </label></td>
+            <td><input type="text" th:field="*{age}" id="age"></td>
+            <td>
+                <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Year error</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Sign up!"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Log in"
+                       onclick="window.location.href= '/auth/login'">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

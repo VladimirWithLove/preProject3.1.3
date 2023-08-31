@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<div>
+    <h2>Ваши данные</h2>
+    <form th:object="${user}">
+        <table border="2" cellpadding="5">
+            <tr>
+                <td>Логин:</td>
+                <td th:utext="${user.getLogin()}"></td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Имя:</td>
+                <td th:utext="${user.getName()}"></td>
+            </tr>
+            <tr>
+                <td>Фамилия:</td>
+                <td th:utext="${user.getSurname()}"></td>
+            </tr>
+            <tr>
+                <td>Возраст:</td>
+                <td th:utext="${user.getAge()}"></td>
+            </tr>
+            <tr>
+                <td>Профессия:</td>
+                <td th:utext="${user.getProfession()}"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<br/>
+<div>
+    <form th:action="@{/logout}" th:method="POST">
+        <input type="submit" value="Logout">
+    </form>
+</div>
+</body>
+</html>

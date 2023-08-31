@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>New user</title>
+</head>
+<body>
+<div>
+    <h2>New user</h2>
+    <form th:action="@{/admin/save}" th:method="post" th:object="${user}">
+        <table border="0" cellpadding="5">
+            <tr>
+                <td><label for="login">Login: </label></td>
+                <td><input type="text" th:field="*{login}" id="login"></td>
+                <td>
+                    <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login error</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password: </label></td>
+                <td><input type="password" th:field="*{password}" id="password"></td>
+                <td>
+                    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+                        error
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="name">Name: </label></td>
+                <td><input type="text" th:field="*{name}" id="name"></td>
+                <td>
+                    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Username error</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="surname">Surname: </label></td>
+                <td><input type="text" th:field="*{surname}" id="surname"></td>
+                <td>
+                    <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="age">Age: </label></td>
+                <td><input type="text" th:field="*{age}" id="age"></td>
+                <td>
+                    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Year error</div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="profession">Profession: </label></td>
+                <td><input type="text" th:field="*{profession}" id="profession"></td>
+                <td>
+                    <div style="color:red" th:if="${#fields.hasErrors('profession')}" th:errors="*{profession}">Profession error</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Add">
+                    <input type="button" value="Cancel"
+                           onclick="window.location.href= '/admin'">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Logout">
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+</head>
+<body>
+<form name="f" method="post" action="/process_login">
+    <table border="0" cellpadding="5">
+        <tr>
+            <td><label for="username">Введите логин пользователя: </label></td>
+            <td><input type="text" name="username" id="username"></td>
+        </tr>
+        <tr>
+            <td><label for="password">Введите пароль: </label></td>
+            <td><input type="password" name="password" id="password"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div th:if="${param.error}" style="color: red">
+                    Неправильное имя пользователя или пароль
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Login"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Sign up"
+                       onclick="window.location.href= '/auth/registration'">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
